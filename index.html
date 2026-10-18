@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Polígono con geolocalización</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <header>
+    <h1>Mi polígono</h1>
+    <div class="controles">
+      <button id="btnUbicar">Mi ubicación</button>
+      <button id="btnCerrar" disabled>Cerrar polígono</button>
+      <button id="btnDeshacer" disabled>Deshacer punto</button>
+      <button id="btnLimpiar">Limpiar</button>
+      <button id="btnExportar" disabled>Exportar GeoJSON</button>
+    </div>
+
+    <div class="controles para retos">
+      <label>Color <input type="color" id="colorPoligono" value="#27ae60"></label>
+      <label>Nombre <input type="text" id="nombrePoligono" placeholder="Mi polígono"></label>
+      <button id="btnAgregarUbicacion">Agregar vértice aquí</button>
+      <label class="boton-archivo">Importar GeoJSON
+        <input type="file" id="archivoGeoJSON" accept=".geojson,.json">
+      </label>
+      <button id="btnDentro" disabled>¿Estoy dentro?</button>
+      <button id="btnGeocerca" disabled>Iniciar geocerca</button>
+    </div>
+
+    <p id="info">Haz clic en el mapa para agregar vértices.</p>
+  </header>
+  <main>
+  <div id="mapa"></div>
+  <aside id="panel">
+    <h2>Vértices</h2>
+    <table id="tablaVertices">
+      <thead>
+        <tr><th>#</th><th>Latitud</th><th>Longitud</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </aside>
+  </main>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@turf/turf@7/turf.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
