@@ -1,51 +1,83 @@
 <!DOCTYPE html>
+<!-- la pagina esta en español -->
 <html lang="es">
 <head>
+  <!-- para que se vean bien las letras -->
   <meta charset="UTF-8">
+  <!-- para que se vea bien en el celular -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- el nombre de la pestana -->
   <title>Polígono con geolocalización</title>
+  <!-- estilos del mapa -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <!-- nuestros estilos -->
   <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
+  <!-- la parte de arriba -->
   <header>
+    <!-- el titulo -->
     <h1>Mi polígono</h1>
+    <!-- botones principales -->
     <div class="controles">
+      <!-- buscar donde estoy -->
       <button id="btnUbicar">Mi ubicación</button>
+      <!-- cerrar la figura -->
       <button id="btnCerrar" disabled>Cerrar polígono</button>
+      <!-- quitar el ultimo punto -->
       <button id="btnDeshacer" disabled>Deshacer punto</button>
+      <!-- borrar todo -->
       <button id="btnLimpiar">Limpiar</button>
+      <!-- descargar el poligono -->
       <button id="btnExportar" disabled>Exportar GeoJSON</button>
     </div>
-
+ 
+    <!-- botones de los retos -->
     <div class="controles para retos">
+      <!-- escoger el color -->
       <label>Color <input type="color" id="colorPoligono" value="#27ae60"></label>
+      <!-- ponerle nombre -->
       <label>Nombre <input type="text" id="nombrePoligono" placeholder="Mi polígono"></label>
+      <!-- poner un punto donde estoy -->
       <button id="btnAgregarUbicacion">Agregar vértice aquí</button>
+      <!-- subir un archivo -->
       <label class="boton-archivo">Importar GeoJSON
         <input type="file" id="archivoGeoJSON" accept=".geojson,.json">
       </label>
+      <!-- ver si estoy adentro -->
       <button id="btnDentro" disabled>¿Estoy dentro?</button>
+      <!-- avisar si salgo o entro -->
       <button id="btnGeocerca" disabled>Iniciar geocerca</button>
     </div>
-
+ 
+    <!-- donde salen los mensajes -->
     <p id="info">Haz clic en el mapa para agregar vértices.</p>
   </header>
+  <!-- la parte principal -->
   <main>
+  <!-- aqui va el mapa -->
   <div id="mapa"></div>
+  <!-- el panel de al lado -->
   <aside id="panel">
+    <!-- titulo del panel -->
     <h2>Vértices</h2>
+    <!-- la tabla de puntos -->
     <table id="tablaVertices">
+      <!-- los titulos de la tabla -->
       <thead>
         <tr><th>#</th><th>Latitud</th><th>Longitud</th></tr>
       </thead>
+      <!-- aqui se llenan los puntos -->
       <tbody></tbody>
     </table>
   </aside>
   </main>
-
+ 
+  <!-- la libreria del mapa -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <!-- la libreria para medir -->
   <script src="https://cdn.jsdelivr.net/npm/@turf/turf@7/turf.min.js"></script>
+  <!-- nuestro codigo -->
   <script src="app.js"></script>
 </body>
 </html>
